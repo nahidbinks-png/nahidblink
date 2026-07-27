@@ -1,1 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLACKPINK | Official Fan & Info Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
 
+    <!-- Header Section -->
+    <header>
+        <div class="logo">BLACKPINK</div>
+        <nav>
+            <ul>
+                <li><a href="#about">History</a></li>
+                <li><a href="#members">Members</a></li>
+                <li><a href="#fandom">Fandom</a></li>
+                <li><a href="#tours">World Tour</a></li>
+                <li><a href="#songs">Hit Songs</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>THE REVOLUTION</h1>
+            <p>Welcome to the ultimate hub of the world's biggest girl group.</p>
+            <a href="#members" class="btn">Explore Members</a>
+        </div>
+    </section>
+
+    <!-- History / About Section -->
+    <section id="about" class="section">
+        <h2>Group History</h2>
+        <div class="about-container">
+            <p><strong>BLACKPINK</strong> (Korean: 블랙핑크) is a South Korean girl group formed by YG Entertainment, consisting of members Jisoo, Jennie, Rosé, and Lisa. The group debuted in August 2016 with their single album <em>Square One</em>, which featured "Whistle" and "Boombayah", their first number-one entries on South Korea's Gaon Digital Chart and the US Billboard World Digital Song Sales chart, respectively.</p>
+            <p>They have broken numerous online records throughout their career. Their music video for "Ddu-Du Ddu-Du" was the most-viewed music video by a Korean group for a long time, and they became the first Korean group to headline Coachella. They continue to dominate the global music industry as fashion icons and musical powerhouses.</p>
+        </div>
+    </section>
+
+    <!-- Members Section -->
+    <section id="members" class="section dark-bg">
+        <h2>The Members</h2>
+        <div class="members-grid">
+            <div class="member-card">
+                <h3>JISOO</h3>
+                <p><strong>Full Name:</strong> Kim Ji-soo</p>
+                <p><strong>Position:</strong> Lead Vocalist, Visual</p>
+                <p>Known for her unique vocal tone, stunning visuals, and charming personality.</p>
+            </div>
+            <div class="member-card">
+                <h3>JENNIE</h3>
+                <p><strong>Full Name:</strong> Jennie Kim</p>
+                <p><strong>Position:</strong> Main Rapper, Lead Vocalist</p>
+                <p>A global fashion icon recognized for her fierce rap style and charismatic stage presence.</p>
+            </div>
+            <div class="member-card">
+                <h3>ROSÉ</h3>
+                <p><strong>Full Name:</strong> Roseanne Park (Park Chae-young)</p>
+                <p><strong>Position:</strong> Main Vocalist, Lead Dancer</p>
+                <p>Celebrated for her distinct, soulful voice and exceptional acoustic guitar skills.</p>
+            </div>
+            <div class="member-card">
+                <h3>LISA</h3>
+                <p><strong>Full Name:</strong> Lalisa Manobal</p>
+                <p><strong>Position:</strong> Main Dancer, Lead Rapper, Sub-Vocalist</p>
+                <p>A powerhouse dancer and global superstar with massive international influence.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fandom Section -->
+    <section id="fandom" class="section">
+        <h2>The Fandom: BLINK</h2>
+        <div class="fandom-content">
+            <p>The official fandom name for BLACKPINK is <strong>BLINK</strong>, a portmanteau of the words "Black" and "Pink". The name signifies how the group started with Black and ended with Pink, representing their connection with their fans.</p>
+            <div class="fandom-badge">
+                <i class="fa-solid fa-heart"></i> Official Color: Black & Pink
+            </div>
+        </div>
+    </section>
+
+    <!-- World Tour Section -->
+    <section id="tours" class="section dark-bg">
+        <h2>World Tour History</h2>
+        <ul class="tour-list">
+            <li>
+                <strong>Blackpink Arena Tour (2018)</strong> - Their debut concert tour in Japan.
+            </li>
+            <li>
+                <strong>In Your Area World Tour (2018–2020)</strong> - Their first major global tour spanning Asia, North America, Europe, and Oceania.
+            </li>
+            <li>
+                <strong>Born Pink World Tour (2022–2023)</strong> - A massive stadium-filling world tour that broke multiple attendance and revenue records for a female group.
+            </li>
+        </ul>
+    </section>
+
+    <!-- Hit Songs Section -->
+    <section id="songs" class="section">
+        <h2>Top Hit Songs (YouTube Links)</h2>
+        <div class="songs-grid">
+            <div class="song-card">
+                <h3>DDU-DU DDU-DU</h3>
+                <a href="https://www.youtube.com/watch?v=IHNzOHi8sJs" target="_blank" class="yt-btn"><i class="fa-brands fa-youtube"></i> Watch on YouTube</a>
+            </div>
+            <div class="song-card">
+                <h3>Kill This Love</h3>
+                <a href="https://www.youtube.com/watch?v=2S24-y0Ij3Y" target="_blank" class="yt-btn"><i class="fa-brands fa-youtube"></i> Watch on YouTube</a>
+            </div>
+            <div class="song-card">
+                <h3>How You Like That</h3>
+                <a href="https://www.youtube.com/watch?v=ioNng23DkIM" target="_blank" class="yt-btn"><i class="fa-brands fa-youtube"></i> Watch on YouTube</a>
+            </div>
+            <div class="song-card">
+                <h3>Pink Venom</h3>
+                <a href="https://www.youtube.com/watch?v=gQlMMD8auMs" target="_blank" class="yt-btn"><i class="fa-brands fa-youtube"></i> Watch on YouTube</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Fan Feedback Section (PHP Integration) -->
+    <section id="contact" class="section dark-bg">
+        <h2>Leave a Message for BLINKs</h2>
+        <form action="process.php" method="POST" class="contact-form">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="5" placeholder="Your Message about Blackpink" required></textarea>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 BLACKPINK Fan Hub. Designed with Style.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

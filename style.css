@@ -191,6 +191,32 @@ nav ul li a:hover {
     background: #990000;
 }
 
+/* Creator Section Styles */
+#creator {
+    background-color: #161616;
+}
+
+.creator-card {
+    background: #222;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 10px;
+    border-top: 4px solid #ff2a85;
+    text-align: center;
+}
+
+.creator-card h3 {
+    color: #ff2a85;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.creator-card p {
+    color: #ccc;
+    font-size: 16px;
+}
+
 /* Contact Form */
 .contact-form {
     max-width: 600px;
@@ -222,4 +248,3 @@ footer {
     color: #777;
     border-top: 1px solid #222;
 }
-

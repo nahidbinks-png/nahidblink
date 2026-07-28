@@ -109,22 +109,21 @@
         </div>
     </section>
 
-    <!-- Facebook Style News Feed / Posts Section -->
+    <!-- Post Section (Facebook Style) -->
     <section style="max-width: 600px; margin: 40px auto; padding: 20px; color: white;">
-        <h2 style="text-align: center; margin-bottom: 20px;">সকল পোস্টসমূহ</h2>
+        <h2 style="text-align: center; margin-bottom: 20px;">নতুন পোস্ট করুন</h2>
         
-        <!-- New Post Box (Facebook Style) -->
+        <!-- Input Form -->
         <div style="background: #1e1e1e; padding: 20px; border-radius: 10px; margin-bottom: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
-            <h3 style="margin-top: 0; color: #ff69b4; margin-bottom: 15px;">মনে কি কিছু চলছে? পোস্ট করুন!</h3>
             <input type="text" id="postTitle" placeholder="টাইটেল দিন..." style="width: 100%; padding: 10px; margin-bottom: 10px; background: #2a2a2a; border: 1px solid #444; color: white; border-radius: 5px; box-sizing: border-box;"><br>
-            <textarea id="postContent" placeholder="আপনার মনের কথা বা পোস্ট এখানে লিখুন..." style="width: 100%; height: 90px; padding: 10px; margin-bottom: 15px; background: #2a2a2a; border: 1px solid #444; color: white; border-radius: 5px; box-sizing: border-box; resize: none;"></textarea><br>
+            <textarea id="postContent" placeholder="আপনার মনের কথা এখানে লিখুন..." style="width: 100%; height: 90px; padding: 10px; margin-bottom: 15px; background: #2a2a2a; border: 1px solid #444; color: white; border-radius: 5px; box-sizing: border-box; resize: none;"></textarea><br>
             <button onclick="handleUserPost()" style="width: 100%; padding: 12px; background: #ff69b4; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 16px;">পোস্ট করুন</button>
         </div>
 
-        <!-- Posts Feed Container -->
-        <div id="postsContainer">
-            <!-- এখানে ফেসবুকের মতো পোস্টগুলো শো করবে -->
-        </div>
+        <h2 style="text-align: center; margin-bottom: 20px;">সকল পোস্টসমূহ</h2>
+        
+        <!-- এই জায়গায় পোস্টগুলো শো করবে -->
+        <div id="postsContainer"></div>
     </section>
 
     <!-- Link your external JS file here -->

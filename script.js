@@ -2,29 +2,29 @@
 document.addEventListener("DOMContentLoaded", function() {
     console.log("BLACKPINK Fan Hub Loaded Successfully!");
 
-    // Interactive greeting alert on clicking the logo
     const logo = document.querySelector('.logo');
-    logo.style.cursor = "pointer";
-    logo.addEventListener('click', function() {
-        alert("BLACKPINK in your area! 🖤💖");
-    });
+    if (logo) {
+        logo.style.cursor = "pointer";
+        logo.addEventListener('click', function() {
+            alert("BLACKPINK in your area! 🖤💖");
+        });
+    }
 
-    // পেজ ওপেন হওয়ার সাথে সাথে সেভ করা পোস্টগুলো স্ক্রিনে নিয়ে আসা
+    // পেজ ওপেন হওয়ার সাথে সাথে পোস্টগুলো স্ক্রিনে নিয়ে আসা
     loadPosts();
 });
 
-// ফেসবুক স্টাইলে পোস্ট লোড করার ফাংশন
+// পোস্টগুলো স্ক্রিনে দেখানোর ফাংশন
 function loadPosts() {
     const container = document.getElementById('postsContainer');
     if (!container) return;
 
-    // ব্রাউজার থেকে পোস্টগুলো ফেচ করা
     let posts = JSON.parse(localStorage.getItem('bp_posts')) || [];
 
     container.innerHTML = '';
 
     if (posts.length === 0) {
-        container.innerHTML = '<p style="text-align: center; color: #aaa;">এখনো কোনো পোস্ট করা হয়নি। প্রথম পোস্ট আপনিই করুন!</p>';
+        container.innerHTML = '<p style="text-align: center; color: #aaa;">এখনো কোনো পোস্ট করা হয়নি।</p>';
         return;
     }
 
@@ -47,7 +47,7 @@ function loadPosts() {
     });
 }
 
-// নতুন পোস্ট করার ফাংশন (ফেসবুকের মতো সাথে সাথে স্ক্রিনে দেখাবে)
+// নতুন পোস্ট করার ফাংশন
 function handleUserPost() {
     const titleInput = document.getElementById('postTitle');
     const contentInput = document.getElementById('postContent');
@@ -60,7 +60,6 @@ function handleUserPost() {
         return;
     }
 
-    // বর্তমান সময় বের করার কোড
     const now = new Date();
     const timeString = now.toLocaleDateString() + ' ' + now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
@@ -70,18 +69,14 @@ function handleUserPost() {
         time: timeString
     };
 
-    // আগের পোস্টগুলোর সাথে নতুন পোস্টটি যোগ করা
     let posts = JSON.parse(localStorage.getItem('bp_posts')) || [];
-    posts.unshift(newPost); // নতুন পোস্ট সবার উপরে দেখানোর জন্য unshift ব্যবহার করা হয়েছে
+    posts.unshift(newPost);
 
-    // ব্রাউজারে সেভ করে রাখা
     localStorage.setItem('bp_posts', JSON.stringify(posts));
 
-    // ফর্ম ক্লিয়ার করা
     titleInput.value = '';
     contentInput.value = '';
 
-    // সাথে সাথে স্ক্রিন রিফ্রেশ করে পোস্টগুলো সামনে নিয়ে আসা
     loadPosts();
 }
 

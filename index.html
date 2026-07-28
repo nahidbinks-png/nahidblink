@@ -105,50 +105,36 @@
     <section id="songs" class="section">
         <h2>Top Hit Songs (YouTube Links)</h2>
         <div class="songs-grid">
-            <div class="song-card">
-                <h3>DDU-DU DDU-DU</h3>
-                <a href="https://www.youtube.com/watch?v=IHNzOHi8sJs" target="_blank" class="yt-btn"><i class="fa-brands fa-youtube"></i> Watch on YouTube</a>
-            </div>
-            <div class="song-card">
-                <h3>Kill This Love</h3>
-                <a href="https://www.youtube.com/watch?v=2S24-y0Ij3Y" target="_blank" class="yt-btn"><i class="fa-brands fa-youtube"></i> Watch on YouTube</a>
-            </div>
-            <div class="song-card">
-                <h3>How You Like That</h3>
-                <a href="https://www.youtube.com/watch?v=ioNng23DkIM" target="_blank" class="yt-btn"><i class="fa-brands fa-youtube"></i> Watch on YouTube</a>
-            </div>
-            <div class="song-card">
-                <h3>Pink Venom</h3>
-                <a href="https://www.youtube.com/watch?v=gQlMMD8auMs" target="_blank" class="yt-btn"><i class="fa-brands fa-youtube"></i> Watch on YouTube</a>
-            </div>
+            <!-- আপনার বাকি অংশ এখানে থাকবে -->
         </div>
     </section>
 
-    <!-- Creator Section -->
-    <section id="creator" class="section dark-bg">
-        <h2>Creator Information</h2>
-        <div class="creator-card" style="background: #222; max-width: 500px; margin: 0 auto; padding: 30px; border-radius: 10px; border-top: 4px solid #ff2a85;">
-            <h3 style="color: #ff2a85; font-size: 24px; margin-bottom: 10px;">Nahid</h3>
-            <p style="color: #ccc; font-size: 16px;">This professional BLACKPINK fan and information hub website has been designed, coded, and developed with style by <strong>Nahid</strong>.</p>
-        </div>
-    </section>
+    <!-- Supabase JavaScript Client Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-    <!-- Contact / Fan Feedback Section (PHP Integration) -->
-    <section id="contact" class="section">
-        <h2>Leave a Message for BLINKs</h2>
-        <form action="process.php" method="POST" class="contact-form">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" rows="5" placeholder="Your Message about Blackpink" required></textarea>
-            <button type="submit" class="btn">Send Message</button>
-        </form>
-    </section>
+    <!-- Supabase Integration Script -->
+    <script>
+        const supabaseUrl = 'https://yqbttjgcgyuytdzaierz.supabase.co';
+        const supabaseKey = 'Sb_publishable_UMVUrSiISAbG9BQX4w4_oQ_xbGW_UFj';
+        
+        const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 BLACKPINK Fan Hub. Created by Nahid. Designed with Style.</p>
-    </footer>
+        async function sendDataToSupabase() {
+            const { data, error } = await supabase
+                .from('posts')
+                .insert([
+                    { title: 'Blackpink Fan Hub', content: 'Connected successfully!' }
+                ]);
 
-    <script src="script.js"></script>
+            if (error) {
+                console.error('ডেটা পাঠাতে সমস্যা হয়েছে:', error);
+            } else {
+                console.log('সফলভাবে ডেটা সেভ হয়েছে:', data);
+            }
+        }
+
+        // চাইলে এখানে ফাংশন কল করতে পারেন
+        // sendDataToSupabase();
+    </script>
 </body>
 </html>

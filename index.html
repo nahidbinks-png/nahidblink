@@ -109,28 +109,18 @@
         </div>
     </section>
 
+    <!-- New Post Form Section -->
+    <div style="text-align: center; margin: 40px 0; padding: 20px; background: #111; color: white;">
+        <h2>নতুন পোস্ট করুন</h2>
+        <input type="text" id="postTitle" placeholder="টাইটেল লিখুন..." style="padding: 10px; width: 280px; margin-bottom: 10px;"><br>
+        <textarea id="postContent" placeholder="আপনার লেখা এখানে লিখুন..." style="padding: 10px; width: 280px; height: 100px; margin-bottom: 10px;"></textarea><br>
+        <button onclick="handleUserPost()" style="padding: 10px 20px; background: #ff69b4; color: white; border: none; cursor: pointer; font-weight: bold;">পোস্ট করুন</button>
+    </div>
+
     <!-- Supabase JavaScript Client Library -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-    <script>
-        const supabaseUrl = 'https://yqbttjgcgyuytdzaierz.supabase.co';
-        const supabaseKey = 'Sb_publishable_UMVUrSiISAbG9BQX4w4_oQ_xbGW_UFj';
-        
-        const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
-
-        async function sendDataToSupabase() {
-            const { data, error } = await supabase
-                .from('posts')
-                .insert([
-                    { title: 'Blackpink Fan Hub', content: 'Connected successfully!' }
-                ]);
-
-            if (error) {
-                console.error('ডেটা পাঠাতে সমস্যা হয়েছে:', error);
-            } else {
-                console.log('সফলভাবে ডেটা সেভ হয়েছে:', data);
-            }
-        }
-    </script>
+    <!-- Link your external JS file here -->
+    <script src="script.js"></script>
 </body>
 </html>

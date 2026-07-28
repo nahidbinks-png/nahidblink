@@ -31,3 +31,4 @@ async function sendDataToSupabase() {
 }
 
 // sendDataToSupabase();
+    

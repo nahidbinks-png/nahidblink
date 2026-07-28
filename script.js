@@ -8,6 +8,9 @@ document.addEventListener("DOMContentLoaded", function() {
     logo.addEventListener('click', function() {
         alert("BLACKPINK in your area! 🖤💖");
     });
+
+    // ওয়েবসাইট চালু হওয়ার সাথে সাথে ডেটাবেজ থেকে পোস্টগুলো লোড করার জন্য
+    loadPosts();
 });
 
 // Supabase Integration Script
@@ -30,6 +33,41 @@ async function sendDataToSupabase() {
     }
 }
 
+// Supabase থেকে পোস্টগুলো এনে ওয়েবসাইটে দেখানোর ফাংশন
+async function loadPosts() {
+    const container = document.getElementById('postsContainer');
+    if (!container) return;
+
+    const { data, error } = await supabase
+        .from('posts')
+        .select('*')
+        .order('id', { ascending: false }); // নতুন পোস্টগুলো সবার উপরে দেখানোর জন্য
+
+    if (error) {
+        console.error('পোস্ট লোড করতে সমস্যা হয়েছে:', error);
+        return;
+    }
+
+    container.innerHTML = '';
+
+    if (data.length === 0) {
+        container.innerHTML = '<p style="text-align: center; color: #aaa;">এখনো কোনো পোস্ট করা হয়নি!</p>';
+        return;
+    }
+
+    data.forEach(post => {
+        const postCard = document.createElement('div');
+        postCard.style.cssText = "background: #222; padding: 15px; margin-bottom: 15px; border-radius: 8px; border-left: 4px solid #ff69b4; text-align: left;";
+        
+        postCard.innerHTML = `
+            <h3 style="margin: 0 0 10px 0; color: #ff69b4;">${post.title}</h3>
+            <p style="margin: 0; color: #ddd; word-break: break-word;">${post.content}</p>
+        `;
+        
+        container.appendChild(postCard);
+    });
+}
+
 async function handleUserPost() {
     const title = document.getElementById('postTitle').value;
     const content = document.getElementById('postContent').value;
@@ -50,5 +88,8 @@ async function handleUserPost() {
         alert('সফলভাবে পোস্ট হয়েছে!');
         document.getElementById('postTitle').value = '';
         document.getElementById('postContent').value = '';
+        
+        // পোস্ট করার সাথে সাথে পেজ রিফ্রেশ ছাড়াই নতুন পোস্টটি স্ক্রিনে দেখানোর জন্য
+        loadPosts();
     }
 }

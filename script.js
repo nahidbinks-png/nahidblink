@@ -30,5 +30,25 @@ async function sendDataToSupabase() {
     }
 }
 
-// sendDataToSupabase();
-    
+async function handleUserPost() {
+    const title = document.getElementById('postTitle').value;
+    const content = document.getElementById('postContent').value;
+
+    if (!title || !content) {
+        alert("দয়া করে টাইটেল এবং লেখা দুটিই দিন!");
+        return;
+    }
+
+    const { data, error } = await supabase
+        .from('posts')
+        .insert([{ title: title, content: content }]);
+
+    if (error) {
+        console.error('সমস্যা হয়েছে:', error);
+        alert('পোস্ট সেভ হয়নি!');
+    } else {
+        alert('সফলভাবে পোস্ট হয়েছে!');
+        document.getElementById('postTitle').value = '';
+        document.getElementById('postContent').value = '';
+    }
+}
